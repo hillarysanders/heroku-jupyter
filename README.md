@@ -52,7 +52,6 @@ heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP
 
 heroku plugins:install heroku-builds --confirm
 
-
 ################################
 # OPTIONAL LOCAL RUN:
 brew install --cask miniconda
