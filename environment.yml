@@ -5,13 +5,13 @@ name: heroku-jupyter
 dependencies:
   - python=3.8
   # bind notebook version (compatibility to pgcontents)
-  - notebook=5.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
+  - notebook=6.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
   # - ipywidgets
-  - requests
+  # - requests
   # bind ipython version (compatibility to pgcontents)
   - ipython
   # bind tornado version (websocket problems)
-  - tornado
+  # - tornado
   # get dependencies for pgcontents
   - certifi
   - click
