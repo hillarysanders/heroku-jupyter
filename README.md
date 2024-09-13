@@ -34,16 +34,21 @@ export JUPYTER_NOTEBOOK_PASSWORD=sandysheets
 
 export APP_NAME=<your_app_name>
 export JUPYTER_NOTEBOOK_PASSWORD=<your_jupyter_password>
+
 git checkout -b main
 
 # Create a new app (or use an existing one you've made)
 heroku create $APP_NAME
 
+# Set your required config variable:
+heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
+# Also make the timeout longer:
+heroku config:set BUILDPACK_TIMEOUT=900 -a jupyter-notebook
+
+
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
 
-# Set your required config variable:
-heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
 
 # Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
 heroku addons:create heroku-postgresql:essential-0 -a jupyter-notebook
