@@ -58,10 +58,12 @@ heroku plugins:install heroku-builds --confirm
 brew install --cask miniconda
 conda init zsh
 
-conda env create -f environment.yml
+conda env create --file environment.yml
 conda env update --file environment.yml
-conda init
 conda activate heroku-jupyter
+conda list notebook
+
+heroku local
 
 ################################
 # TO PURGE THE BUILD CACHE:

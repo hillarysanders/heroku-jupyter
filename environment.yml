@@ -5,7 +5,7 @@ channels:
 dependencies:
   - python=3.9
   # bind notebook version (compatibility to pgcontents)
-  - notebook=5.* # 7.22 failed
+  - notebook=5.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
   - ipywidgets
   - requests
   # bind ipython version (compatibility to pgcontents)
