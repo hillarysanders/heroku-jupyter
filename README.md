@@ -65,6 +65,12 @@ conda list notebook
 heroku local
 
 ################################
+# IMPORTANT COMMANDS:
+heroku config --app jupyter-notebook
+heroku apps --app jupyter-notebook
+heroku ps:exec --app jupyter-notebook # ssh into build
+
+################################
 # TO PURGE THE BUILD CACHE:
 heroku plugins:install heroku-builds
 heroku builds:cache:purge -a jupyter-notebook
