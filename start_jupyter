@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Update Conda environment with runtime dependencies
+echo "Updating Conda environment..."
+conda env update --file runtime.yml
+
+# Install additional runtime pip dependencies
+echo "Installing pip dependencies..."
+pip install -r requirements.txt
+
 echo "Starting pgcontents initialization"
 pgcontents init -l $DATABASE_URL --no-prompt || exit 1
 echo "pgcontents initialized"
