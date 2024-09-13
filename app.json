@@ -25,5 +25,11 @@
   },
   "addons": [
     "heroku-postgresql:essential-1"
-  ]
+  ],
+  "formation": {
+    "web": {
+        "quantity": 1,
+        "size": "standard-1x"
+        }
+    }
 }

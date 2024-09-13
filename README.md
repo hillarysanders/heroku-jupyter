@@ -43,18 +43,17 @@ heroku create $APP_NAME
 # Set your required config variable:
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
 # Also make the timeout longer:
-heroku config:set BUILDPACK_TIMEOUT=900 -a jupyter-notebook
-
+heroku config:set BUILDPACK_TIMEOUT=1800 -a $APP_NAME
 
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
 
 
 # Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
-heroku addons:create heroku-postgresql:essential-0 -a jupyter-notebook
+heroku addons:create heroku-postgresql:essential-0 -a $APP_NAME
 
 # Make sure at least 1 web dyno is running
-heroku ps:scale web=1 -a jupyter-notebook
+heroku ps:scale web=1 -a $APP_NAME
 
 git push heroku main
 ```
