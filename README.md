@@ -48,7 +48,15 @@ heroku config:set BUILDPACK_TIMEOUT=1800 -a $APP_NAME
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
 
+################################
+# OPTIONAL LOCAL RUN:
+brew install --cask miniconda
+conda init zsh
 
+conda env create -f environment.yml
+
+################################
+# NO LONGER NEEDED w/ APP.JSON:
 # Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
 heroku addons:create heroku-postgresql:essential-0 -a $APP_NAME
 
