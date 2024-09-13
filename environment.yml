@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.9
   # bind notebook version (compatibility to pgcontents)
   - notebook=5.* # 7.22 failed
   - ipywidgets
