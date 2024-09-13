@@ -2,7 +2,7 @@
 
 # Update Conda environment with runtime dependencies
 echo "Updating Conda environment..."
-conda env update --file runtime.yml
+conda env update --file runtime.yml || { echo "Conda env update failed"; exit 1; }
 
 # Install additional runtime pip dependencies
 echo "Installing pip dependencies..."

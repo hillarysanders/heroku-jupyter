@@ -69,6 +69,10 @@ heroku local
 heroku plugins:install heroku-builds
 heroku builds:cache:purge -a jupyter-notebook
 
+TLDR: the packages used in the orginal version of this are ancient.
+
+################################
+heroku ps:type --app jupyter-notebook
 
 ################################
 # NO LONGER NEEDED w/ APP.JSON:
