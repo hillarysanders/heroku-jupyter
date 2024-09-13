@@ -38,12 +38,16 @@ git checkout -b main
 
 # Create a new app (or use an existing one you've made)
 heroku create $APP_NAME
+
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
+
 # Set your required config variable:
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
+
 # Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
-heroku addons:create heroku-postgresql:hobby-dev -a $APP_NAME
+heroku addons:create heroku-postgresql:essential-0 -a jupyter-notebook
+
 # Make sure at least 1 web dyno is running
 heroku ps:scale web=1 -a jupyter-notebook
 
