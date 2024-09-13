@@ -24,6 +24,6 @@
     }
   },
   "addons": [
-    "heroku-postgresql:basic"
+    "heroku-postgresql:essential-1"
   ]
 }
