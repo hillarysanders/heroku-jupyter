@@ -10,7 +10,7 @@
 
 echo "Starting pgcontents initialization"
 echo "DATABASE_URL is $DATABASE_URL"
-pgcontents init -l $DATABASE_URL --no-prompt || exit 1
+pgcontents init --no-prompt -l $DATABASE_URL || exit 1
 echo "pgcontents initialized"
 
 echo "Installing Jupyter extensions"
