@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   # bind notebook version (compatibility to pgcontents)
-  - notebook
+  - notebook=5.* # 7.22 failed
   - ipywidgets
   - requests
   # bind ipython version (compatibility to pgcontents)

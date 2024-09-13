@@ -42,11 +42,16 @@ heroku create $APP_NAME
 
 # Set your required config variable:
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
+
 # Also make the timeout longer:
 heroku config:set BUILDPACK_TIMEOUT=1800 -a $APP_NAME
 
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
+
+
+heroku plugins:install heroku-builds --confirm
+
 
 ################################
 # OPTIONAL LOCAL RUN:
@@ -54,6 +59,15 @@ brew install --cask miniconda
 conda init zsh
 
 conda env create -f environment.yml
+conda env update --file environment.yml
+conda init
+conda activate heroku-jupyter
+
+################################
+# TO PURGE THE BUILD CACHE:
+heroku plugins:install heroku-builds
+heroku builds:cache:purge -a jupyter-notebook
+
 
 ################################
 # NO LONGER NEEDED w/ APP.JSON:
