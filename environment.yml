@@ -26,7 +26,7 @@ dependencies:
     # pgcontents seems to depend on notebook.services, which appears to depend on notebook.services, which is no
     # longer a valid package in 6.* and 7.* notebook versions (the recommended major versions).
     # --> Perhaps we can scrape together a PR to fix this issue.
-    - pgcontents=0.6
+    - pgcontents==0.6
     - git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
 
 # Size is a big issue... needs to be under 500M.
