@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  # - python=3.8
+  - python=3.7
   # bind notebook version (compatibility to pgcontents)
   # - notebook=5.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
   # - ipywidgets
@@ -34,3 +34,6 @@ dependencies:
 # Using heroku-buildpack-conda
 # 585.6M = python3.8 and notebook5.*
 # 478.8M = python3.8 only
+# = No Additional Packages.
+
+# older versions of notebooks
