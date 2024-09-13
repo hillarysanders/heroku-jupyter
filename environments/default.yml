@@ -13,7 +13,7 @@ dependencies:
   - click
   - cryptography
   - mako
-  - psycopg2-binary
+  - psycopg2
   - six
   - sqlalchemy
   - nose
