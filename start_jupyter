@@ -9,6 +9,7 @@
 # pip install -r requirements.txt
 
 echo "Starting pgcontents initialization"
+echo "DATABASE_URL is $DATABASE_URL"
 pgcontents init -l $DATABASE_URL --no-prompt || exit 1
 echo "pgcontents initialized"
 
