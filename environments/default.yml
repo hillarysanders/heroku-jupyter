@@ -11,12 +11,13 @@ dependencies:
   # get dependencies for pgcontents
   - certifi
   - click
-  - cryptography 
+  - cryptography
   - mako
   - psycopg2
   - six
   - sqlalchemy
   - nose
+  - pip
   - pip:
     - pgcontents
     - git+git://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
