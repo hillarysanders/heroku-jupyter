@@ -5,29 +5,29 @@ name: heroku-jupyter
 dependencies:
   - python=3.8
   # bind notebook version (compatibility to pgcontents)
-  # - notebook=5.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
-  # - ipywidgets
-  # - requests
-  # # bind ipython version (compatibility to pgcontents)
-  # - ipython
-  # # bind tornado version (websocket problems)
-  # - tornado
-  # # get dependencies for pgcontents
-  # - certifi
-  # - click
-  # - cryptography
-  # - mako
-  # - psycopg2
-  # - six
-  # - sqlalchemy
-  # - nose
-  # - pip
-  # - pip:
-  #   # pgcontents seems to depend on notebook.services, which appears to depend on notebook.services, which is no
-  #   # longer a valid package in 6.* and 7.* notebook versions (the recommended major versions).
-  #   # --> Perhaps we can scrape together a PR to fix this issue.
-  #   - pgcontents
-  #   - git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
+  - notebook=5.* # 7.22 failed, 6.* fails because pgcontents expects notebook.services to be there, 5.* fails due to size. And get get package locally.
+  - ipywidgets
+  - requests
+  # bind ipython version (compatibility to pgcontents)
+  - ipython
+  # bind tornado version (websocket problems)
+  - tornado
+  # get dependencies for pgcontents
+  - certifi
+  - click
+  - cryptography
+  - mako
+  - psycopg2
+  - six
+  - sqlalchemy
+  - nose
+  - pip
+  - pip:
+    # pgcontents seems to depend on notebook.services, which appears to depend on notebook.services, which is no
+    # longer a valid package in 6.* and 7.* notebook versions (the recommended major versions).
+    # --> Perhaps we can scrape together a PR to fix this issue.
+    - pgcontents
+    - git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
 
 # Size is a big issue... needs to be under 500M.
 # 650.9M
