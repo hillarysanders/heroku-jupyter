@@ -1,0 +1,17 @@
+name: runtime-env
+channels:
+  - conda-forge
+dependencies:
+  - notebook=5.*
+  - ipywidgets
+  - requests
+  - ipython
+  - tornado
+  - certifi
+  - click
+  - cryptography
+  - mako
+  - psycopg2
+  - six
+  - sqlalchemy
+  - nose

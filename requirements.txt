@@ -1,0 +1,2 @@
+pgcontents
+git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
