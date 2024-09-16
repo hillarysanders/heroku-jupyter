@@ -68,6 +68,10 @@ heroku local
 # IMPORTANT COMMANDS:
 heroku config --app jupyter-notebook
 heroku apps --app jupyter-notebook
+
+# ssh into build?
+heroku run bash --app jupyter-notebook
+# or
 heroku ps:exec --app jupyter-notebook # ssh into build
 
 ################################

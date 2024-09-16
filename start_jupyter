@@ -11,6 +11,9 @@
 echo "Starting pgcontents initialization"
 echo "DATABASE_URL is $DATABASE_URL"
 pgcontents init --no-prompt -l $DATABASE_URL || exit 1
+# currently facing a known issue: https://github.com/quantopian/pgcontents/issues/80
+# need to modify this file, lol: /app/.conda/lib/python3.8/site-packages/pgcontents/alembic/versions/2d46c89138b0_.py
+
 echo "pgcontents initialized"
 
 echo "Installing Jupyter extensions"
