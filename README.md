@@ -118,7 +118,6 @@ server, you can set `JUPYTER_NOTEBOOK_PASSWORD_DISABLED` to `DangerZone!`.
 ## Python version
 
 If you want to use a special python version, you should set it in your runtime.txt, for example:
-
 ```
 python-3.10.6
 ```
