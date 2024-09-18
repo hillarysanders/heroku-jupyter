@@ -7,6 +7,7 @@
 # # Install additional runtime pip dependencies
 # echo "Installing pip dependencies..."
 # pip install -r requirements.txt
+pip install jupyter
 
 echo "Starting pgcontents initialization"
 echo "DATABASE_URL is $DATABASE_URL"

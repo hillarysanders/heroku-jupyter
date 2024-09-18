@@ -67,7 +67,6 @@ heroku local
 ################################
 # IMPORTANT COMMANDS:
 heroku config --app jupyter-notebook
-heroku apps --app jupyter-notebook
 
 # ssh into build?
 heroku run bash --app jupyter-notebook
@@ -79,13 +78,13 @@ heroku ps:exec --app jupyter-notebook # ssh into build
 heroku plugins:install heroku-builds
 heroku builds:cache:purge -a jupyter-notebook
 
-TLDR: the packages used in the orginal version of this are ancient.
+TLDR: the packages used in the original version of this are ancient.
 
 ################################
 heroku ps:type --app jupyter-notebook
 
 ################################
-# NO LONGER NEEDED w/ APP.JSON:
+# NO LONGER NEEDED w/ APP.JSON?
 # Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
 heroku addons:create heroku-postgresql:essential-0 -a $APP_NAME
 
