@@ -25,16 +25,79 @@ If you forked this repository, you can link it to your heroku app afterwards.
 Push this repository to your app or fork this repository on github and link your
 repository to your heroku app.
 
-Use the [heroku-buildpack-conda](https://github.com/pl31/heroku-buildpack-conda):
+To create a new app, run:
 ```
-$ heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a <your_app>
+brew install git
+
+export APP_NAME=jupyter-notebook
+export JUPYTER_NOTEBOOK_PASSWORD=sandysheets
+
+export APP_NAME=<your_app_name>
+export JUPYTER_NOTEBOOK_PASSWORD=<your_jupyter_password>
+
+git checkout -b main
+
+# Create a new app (or use an existing one you've made)
+heroku create $APP_NAME
+
+# Set your required config variable:
+heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
+
+# Also make the timeout longer:
+heroku config:set BUILDPACK_TIMEOUT=1800 -a $APP_NAME
+
+# Specify the buildpack it shuold use (Conda):
+heroku buildpacks:set https://github.com/pl31/heroku-buildpack-conda.git -a $APP_NAME
+
+
+heroku plugins:install heroku-builds --confirm
+
+################################
+# OPTIONAL LOCAL RUN:
+brew install --cask miniconda
+conda init zsh
+
+conda env create --file environment.yml
+conda env update --file environment.yml
+conda activate heroku-jupyter
+conda list notebook
+
+heroku local
+
+################################
+# IMPORTANT COMMANDS:
+heroku config --app jupyter-notebook
+
+# ssh into build?
+heroku run bash --app jupyter-notebook
+# or
+heroku ps:exec --app jupyter-notebook # ssh into build
+
+git commit -a -m 'update'; git push heroku main
+
+heroku logs --tail -a jupyter-notebook
+
+################################
+# TO PURGE THE BUILD CACHE:
+heroku plugins:install heroku-builds
+heroku builds:cache:purge -a jupyter-notebook
+
+TLDR: the packages used in the original version of this are ancient.
+
+################################
+heroku ps:type --app jupyter-notebook
+
+################################
+# NO LONGER NEEDED w/ APP.JSON?
+# Attach a postgres DB add-on (this will automatically set $DATABASE_URL and $PORT)
+heroku addons:create heroku-postgresql:essential-0 -a $APP_NAME
+
+# Make sure at least 1 web dyno is running
+heroku ps:scale web=1 -a $APP_NAME
+
+git push heroku main
 ```
 
-Jupyter notebook will not start until the environment variable
-`JUPYTER_NOTEBOOK_PASSWORD` is set. Use a good password:
-```
-$ heroku config:set JUPYTER_NOTEBOOK_PASSWORD=<your_passwd> -a <your_app>
-```
 
 If you are really sure, that you do not want a password protected notebook
 server, you can set `JUPYTER_NOTEBOOK_PASSWORD_DISABLED` to `DangerZone!`.
