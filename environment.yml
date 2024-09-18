@@ -13,14 +13,14 @@ dependencies:
   # bind tornado version (websocket problems)
   # - tornado
   # get dependencies for pgcontents
-  - certifi
-  - click
-  - cryptography
-  - mako
-  - six
-  - sqlalchemy
-  - nose
-  - pip
+  # - certifi
+  # - click
+  # - cryptography
+  # - mako
+  # - six
+  # - sqlalchemy
+  # - nose
+  # - pip
   - pip:
     # pgcontents seems to depend on notebook.services, which appears to depend on notebook.services, which is no
     # longer a valid package in 6.* and 7.* notebook versions (the recommended major versions).

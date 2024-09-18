@@ -73,6 +73,10 @@ heroku run bash --app jupyter-notebook
 # or
 heroku ps:exec --app jupyter-notebook # ssh into build
 
+git commit -a -m 'update'; git push heroku main
+
+heroku logs --tail -a jupyter-notebook
+
 ################################
 # TO PURGE THE BUILD CACHE:
 heroku plugins:install heroku-builds
