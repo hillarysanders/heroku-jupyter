@@ -16,6 +16,9 @@ try:
         c.NotebookApp.token = ''
         c.NotebookApp.password = ''
 
+    ### Make it so the default shell is bash
+    c.NotebookApp.terminado_settings = {'shell_command': ['/bin/bash']}
+
     ### PostresContentsManager ###
     database_url = os.getenv('DATABASE_URL', None)
     if database_url:
