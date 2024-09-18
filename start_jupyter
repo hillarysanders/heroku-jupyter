@@ -25,6 +25,10 @@ echo "Enabling nbextensions configurator"
 jupyter nbextensions_configurator enable --user
 echo "Nbextensions configurator enabled"
 
+# heroku will override $PS1 when specified as a config var, so I'm setting it here to make the jupyter
+# terminal interface a little prettier:
+export PS1='\[\033[01;34m\]\w\[\033[00m\]\$'
+
 echo "Starting Jupyter Notebook"
 # NOTE: With allow_origin='*', anyone with the URL and password can potentially access your notebook,
 # so be careful w/ the URL and password. Don't put sensitive data up here.

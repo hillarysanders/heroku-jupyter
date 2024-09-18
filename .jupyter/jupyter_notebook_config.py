@@ -16,7 +16,7 @@ try:
         c.NotebookApp.token = ''
         c.NotebookApp.password = ''
 
-    ### Make it so the default shell is bash
+    ### Make it so the default shell is bash & the prompt is not awful:
     c.NotebookApp.terminado_settings = {'shell_command': ['/bin/bash']}
 
     ### PostresContentsManager ###
