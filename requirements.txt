@@ -1,2 +1,5 @@
-pgcontents
+ipython
+notebook==6.*
+pgcontents==0.6
+psycopg2-binary
 git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
