@@ -28,5 +28,6 @@ echo "Nbextensions configurator enabled"
 echo "Starting Jupyter Notebook"
 jupyter notebook \
     --no-browser --no-mathjax --ip=0.0.0.0 --port=$PORT \
+    --NotebookApp.allow_origin='*' --NotebookApp.allow_credentials=True \
     $JUPYTER_NOTEBOOK_ARGS \
     notebooks
