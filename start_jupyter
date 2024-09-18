@@ -26,6 +26,8 @@ jupyter nbextensions_configurator enable --user
 echo "Nbextensions configurator enabled"
 
 echo "Starting Jupyter Notebook"
+# NOTE: With allow_origin='*', anyone with the URL and password can potentially access your notebook,
+# so be careful w/ the URL and password. Don't put sensitive data up here.
 jupyter notebook \
     --no-browser --no-mathjax --ip=0.0.0.0 --port=$PORT \
     --NotebookApp.allow_origin='*' --NotebookApp.allow_credentials=True \
