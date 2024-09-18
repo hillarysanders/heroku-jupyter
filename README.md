@@ -20,6 +20,7 @@ If you want to customize your app, easiest is to fork this repository.
 
 If you forked this repository, you can link it to your heroku app afterwards.
 
+
 ### heroku - manual deployment
 
 Push this repository to your app or fork this repository on github and link your
