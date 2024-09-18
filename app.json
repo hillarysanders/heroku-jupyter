@@ -4,7 +4,6 @@
   "buildpacks": [
     {
         "url": "heroku/python"
-        // "url": "https://github.com/pl31/heroku-buildpack-conda.git"
     }
   ],
   "env": {
@@ -15,17 +14,7 @@
       "description": "Additional command line arguments.",
       "required": false,
       "value": ""
-    },
-    // "ENVIRONMENT_YML": {
-    //   "description": "Alternative environment.yml path.",
-    //   "required": false,
-    //   "value": ""
-    // },
-    // "ADDITIONAL_ENVIRONMENT_YML": {
-    //   "description": "Additional environment.yml path.",
-    //   "required": false,
-    //   "value": ""
-    // }
+    }
   },
   "addons": [
     "heroku-postgresql:essential-1"
