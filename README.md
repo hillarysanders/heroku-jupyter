@@ -102,30 +102,25 @@ git push heroku main
 If you are really sure, that you do not want a password protected notebook
 server, you can set `JUPYTER_NOTEBOOK_PASSWORD_DISABLED` to `DangerZone!`.
 
-### CloudFoundry
 
+
+### CloudFoundry
 - Clone this repository
 - Create a postgres database service with name `jupyter-db`
 - Deploy using `cf push`
 - Set `JUPYTER_NOTEBOOK_PASSWORD` using `cf set-env`. Do not forget to restart application.
 
 ## Environment variables
-
 - `JUPYTER_NOTEBOOK_PASSWORD`: Set password for notebooks
-- `JUPYTER_NOTEBOOK_PASSWORD_DISABLED`: Set to `DangerZone!` to disable password
-  protection
-- `JUPYTER_NOTEBOOK_ARGS`: Additional command line args passed to
-  `jupyter notebook`; e.g. get a more verbose logging using `--debug`
+- `JUPYTER_NOTEBOOK_PASSWORD_DISABLED`: Set to `DangerZone!` to disable password protection
+- `JUPYTER_NOTEBOOK_ARGS`: Additional command line args passed to `jupyter notebook`; e.g. get a more verbose logging using `--debug`
 
 ## Python version
 
-If you want to use a special python version, you should set it in your environment.yml:
+If you want to use a special python version, you should set it in your runtime.txt, for example:
 
 ```
-name: root
-dependencies:
-  - python=2.7
-  - ...
+python-3.10.6
 ```
 
 ## Environments
