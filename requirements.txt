@@ -1,7 +1,8 @@
-ipython
+# ipython==7.32.0 # https://github.com/NetApp/netapp-dataops-toolkit/issues/13
+ipython==8.27.0
 notebook==6.*
 pgcontents==0.6
 sqlalchemy[postgresql]==1.3 # https://stackoverflow.com/questions/62688256/sqlalchemy-exc-nosuchmoduleerror-cant-load-plugin-sqlalchemy-dialectspostgre
 psycopg2-binary
-alembic
+alembic==1.13.2
 git+https://github.com/ipython-contrib/jupyter_contrib_nbextensions.git
