@@ -11,7 +11,7 @@ If you want to customize your app, feel free to fork this repository.
 
 The fastest & easiest way to get started is to choose option 1 below: automatic deployment on Heroku.
 
-### 1. heroku - automatic deployment (faster & easier)
+### 1. Heroku - Automatic Deployment (faster & easier)
 
 First, click on this handy dandy button:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
@@ -22,7 +22,7 @@ It will take a couple of minutes for your app to deploy, and then you'll be able
 
 Note: If you choose later to fork this repository, you can link your new repo to your heroku app afterwards.
 
-### 2. heroku - manual deployment
+### 2. Heroku - Manual Deployment (does the same thing as 1, but nice for learning / understanding)
 
 Push this repository to your app or fork this repository on github and link your
 repository to your heroku app.
