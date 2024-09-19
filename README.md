@@ -2,21 +2,25 @@
 
 Use this application to deploy [Jupyter Notebook](https://jupyter.org/) to
 heroku or CloudFoundry. If a postgres database is available,
-[pgcontents](https://github.com/quantopian/pgcontents) is used as notebook
+[pgcontents](https://github.com/quantopian/pgcontents) is used to power persistant notebook
 storage.
-
-## Quick start - Installation instructions
 
 If you want to customize your app, feel free to fork this repository.
 
-The fastest way to get started is to choose option 1. below: automatic deployment on Heroku.
+## Quick start - Installation instructions
+
+The fastest & easiest way to get started is to choose option 1 below: automatic deployment on Heroku.
 
 ### 1. heroku - automatic deployment (faster & easier)
 
+First, click on this handy dandy button:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-If you forked this repository, you can link it to your heroku app afterwards.
+Go through the form that the ^^ above button leads you to, and choose an app name & password. Then click the purple 'deploy app' button at the bottom of the form.
 
+It will take a couple of minutes for your app to deploy, and then you'll be able to click links to 1) manage your app, and 2) view your live, interactive jupyter notebook running on a heroku dyno (with persistant storage!).
+
+Note: If you choose later to fork this repository, you can link your new repo to your heroku app afterwards.
 
 ### 2. heroku - manual deployment
 
@@ -31,7 +35,8 @@ export JUPYTER_NOTEBOOK_PASSWORD=<your_jupyter_password>
 # if you don't have git:
 brew install git
 # clone this repo (swap with your forked repo if you wish):
-git clone git@github.com:heroku/heroku-jupyter.git
+# git clone git@github.com:heroku/heroku-jupyter.git # TODO uncomment if this is fork lands to original heroku repo!
+git clone git@github.com:hillarysanders/heroku-jupyter.git
 cd heroku-jupyter
 
 # Create a new app (or use an existing one you've made)
@@ -44,11 +49,17 @@ heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_N
 heroku buildpacks:set heroku/python -a $APP_NAME
 # TODO: Also add in the apt buildpack to make it easier for folks to customize things?
 
-# Make sure at least 1 web dyno is running
-heroku ps:scale web=1 -a $APP_NAME
+# Attach the postgres addon:
+heroku addons:create heroku-postgresql:essential-1 --app $APP_NAME
+
+# Connect your app to the repo:
+heroku git:remote -a $APP_NAME
 
 # deploy
 git push heroku main
+
+# Make sure at least 1 web dyno is running
+heroku ps:scale web=1 -a $APP_NAME
 ```
 
 Optional useful commands:
