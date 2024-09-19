@@ -42,6 +42,9 @@ cd heroku-jupyter
 # Create a new app (or use an existing one you've made)
 heroku create $APP_NAME
 
+# Set the stack:
+heroku stack:set heroku-24 --app $APP_NAME
+
 # Set your required config variable:
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
 
@@ -58,8 +61,7 @@ heroku git:remote -a $APP_NAME
 # deploy
 git push heroku main
 
-# Make sure at least 1 web dyno is running
-heroku ps:scale web=1 -a $APP_NAME
+# Follow the URL from ^^ to view your app! To view logs, run `heroku logs --tail -a $APP_NAME`
 ```
 
 Optional useful commands:
@@ -74,8 +76,7 @@ heroku run bash --app $APP_NAME
 heroku logs --tail -a jupyter-notebook
 ```
 
-
-If you are really sure that you do not want a password protected notebook (not recommended) and server, you can set `JUPYTER_NOTEBOOK_PASSWORD_DISABLED` to `DangerZone!`:
+If you are really sure that you do not want a password protected notebook and server (not recommended), you can set `JUPYTER_NOTEBOOK_PASSWORD_DISABLED` to `DangerZone!`:
 ```
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD_DISABLED=DangerZone! -a <your-app-name>
 ```
