@@ -48,10 +48,9 @@ heroku stack:set heroku-24 --app $APP_NAME
 # Set your required config variable:
 heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_NAME
 
-# Specify the buildpack it shuold use (Conda):
-heroku buildpacks:set heroku/python -a $APP_NAME
-heroku buildpacks:set --index 1 heroku-community/apt -a $APP_NAME
-# TODO: Also add in the apt buildpack to make it easier for folks to customize things?
+# Specify the buildpacks it should use:
+heroku buildpacks:add --index 1 heroku-community/apt -a $APP_NAME
+heroku buildpacks:add --index 2 heroku/python -a $APP_NAME
 
 # Attach the postgres addon:
 heroku addons:create heroku-postgresql:essential-1 --app $APP_NAME
