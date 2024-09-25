@@ -50,6 +50,7 @@ heroku config:set JUPYTER_NOTEBOOK_PASSWORD=$JUPYTER_NOTEBOOK_PASSWORD -a $APP_N
 
 # Specify the buildpack it shuold use (Conda):
 heroku buildpacks:set heroku/python -a $APP_NAME
+heroku buildpacks:set --index 1 heroku-community/apt -a $APP_NAME
 # TODO: Also add in the apt buildpack to make it easier for folks to customize things?
 
 # Attach the postgres addon:
